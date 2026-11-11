@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hacked</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .hacked {
+        font-size: clamp(3rem, 16vw, 12rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: #111111;
+        line-height: 1;
+        animation: dropIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    @keyframes dropIn {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* subtle underline accent */
+    .hacked::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: #111111;
+        margin: 24px auto 0;
+        border-radius: 2px;
+        transform: scaleX(0);
+        transform-origin: center;
+        animation: growLine 0.8s ease forwards 0.8s;
+    }
+
+    @keyframes growLine {
+        to { transform: scaleX(1); }
+    }
+
+    .credit {
+        margin-top: 28px;
+        font-size: clamp(0.85rem, 1.6vw, 1.1rem);
+        font-weight: 500;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #888888;
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards 1.2s;
+    }
+
+    .credit a {
+        color: #111111;
+        font-weight: 700;
+        text-decoration: none;
+        position: relative;
+        transition: color 0.2s ease;
+    }
+
+    /* animated underline on hover */
+    .credit a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 100%;
+        height: 2px;
+        background: #111111;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease;
+    }
+
+    .credit a:hover {
+        color: #0066cc;
+    }
+
+    .credit a:hover::after {
+        background: #0066cc;
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+</head>
+<body>
+    <h1 class="hacked">Hacked</h1>
+    <p class="credit">by <a href="https://t.me/teamenthem" target="_blank" rel="noopener noreferrer">#TEAMENTHEM</a></p>
+</body>
+</html>
